@@ -142,13 +142,13 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:text="About"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat orci ac eros porttitor pharetra. Maecenas consectetur augue et tortor feugiat bibendum. Integer gravida metus augue, quis malesuada neque pellentesque nec. Suspendisse et venenatis quam, a porttitor leo. Duis tincidunt tortor sed augue placerat convallis. Mauris efficitur a nibh vel fringilla. Sed consequat felis urna, et vestibulum ex molestie eu. Duis tortor neque, viverra eu suscipit vel, euismod ut quam. Aliquam erat volutpat. Aliquam erat volutpat. Maecenas accumsan, amet malesuada neque pellentesque nec. Suspendisse et venenatis quam, a porttitor leo. Duis tincidunt tortor sed augue placerat elit."
                 />
             <View
