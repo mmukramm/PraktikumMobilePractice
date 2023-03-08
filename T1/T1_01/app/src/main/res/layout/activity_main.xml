@@ -56,7 +56,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="30dp">
-            <LinearLayout
+            <TableLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,9 +80,9 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:text="Repositories"/>
-            </LinearLayout>
+            </TableLayout>
 
-            <LinearLayout
+            <TableLayout
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_width="wrap_content"
@@ -106,9 +106,9 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:text="Followers"/>
-            </LinearLayout>
+            </TableLayout>
 
-            <LinearLayout
+            <TableLayout
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -132,7 +132,7 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:text="Following"/>
-            </LinearLayout>
+            </TableLayout>
 
         </LinearLayout>
         <LinearLayout
