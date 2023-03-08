@@ -17,7 +17,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="50dp"
-            android:src="@drawable/mu"
+            android:src="@drawable/myphot"
             app:civ_border_color="#FF000000"
             app:civ_border_width="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,11 +53,15 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/nim"
             android:id="@+id/linlay1"
+            android:orientation="horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="30dp">
-            <TableLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,14 +80,14 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:text="Repositories"/>
-            </TableLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-            <TableLayout
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,12 +106,12 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:text="Followers"/>
-            </TableLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-            <TableLayout
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
@@ -128,7 +132,7 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:text="Following"/>
-            </TableLayout>
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
@@ -150,11 +154,9 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat orci ac eros porttitor pharetra. Maecenas consectetur augue et tortor feugiat bibendum. Integer gravida metus augue, quis malesuada neque pellentesque nec. Suspendisse et venenatis quam, a porttitor leo. Duis tincidunt tortor sed augue placerat convallis. Mauris efficitur a nibh vel fringilla. Sed consequat felis urna, et vestibulum ex molestie eu. Duis tortor neque, viverra eu suscipit vel, euismod ut quam. Aliquam erat volutpat. Aliquam erat volutpat. Maecenas accumsan, amet malesuada neque pellentesque nec. Suspendisse et venenatis quam, a porttitor leo. Duis tincidunt tortor sed augue placerat elit."
+                android:layout_marginBottom="60dp"
                 />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
