@@ -25,7 +25,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:hint="Masukkan jari-jari"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintTop_toBottomOf="@id/panjangtxt" />
         <Button
             android:id="@+id/submitbutton"

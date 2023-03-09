@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         spinner = (Spinner) findViewById(R.id.pilihbangun);
-        System.out.println("dibawah ini adalah spinneeeeeeer");
-        System.out.println(spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.bangun_ruang, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -34,17 +32,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         FragmentManager fm = getSupportFragmentManager();
         if (selected.equals("Balok")){
-            System.out.println("Ini adalah bangun ruang " + selected);
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.container, new BalokFragment());
             ft.commit();
         } else if (selected.equals("Kerucut")) {
-            System.out.println("Ini adalah bangun ruang " + selected);
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.container, new KerucutFragment());
             ft.commit();
         } else if (selected.equals("Bola")) {
-            System.out.println("Ini adalah bangun ruang " + selected);
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.container, new BolaFragment());
             ft.commit();

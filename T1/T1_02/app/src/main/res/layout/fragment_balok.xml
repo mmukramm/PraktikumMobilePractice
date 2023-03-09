@@ -26,7 +26,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:hint="Masukkan Panjang"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintTop_toBottomOf="@id/panjangtxt" />
         <TextView
             android:id="@+id/lebartxt"
@@ -45,7 +45,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:hint="Masukkan lebar"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintTop_toBottomOf="@id/lebartxt" />
         <TextView
             android:id="@+id/tinggitxt"
@@ -65,7 +65,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:hint="Masukkan lebar"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintTop_toBottomOf="@id/tinggitxt" />
         <Button
             android:id="@+id/submitbutton"

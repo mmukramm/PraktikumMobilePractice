@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,10 +30,16 @@ public class KerucutFragment extends Fragment {
         tinggiet = (EditText) view.findViewById(R.id.tinggiet);
         hasiltxt = (TextView) view.findViewById(R.id.hasil);
         myButton.setOnClickListener(view1 -> {
-            double jarijari = Double.parseDouble(jarijariet.getText().toString());
-            double tinggi = Double.parseDouble((tinggiet.getText().toString()));
-            double hasil = (1.0/3.0)*(3.14)*(jarijari*jarijari)* tinggi;
-            hasiltxt.setText(String.format("%.2f", hasil));
+            if (TextUtils.isEmpty(jarijariet.getText().toString()) || TextUtils.isEmpty(tinggiet.getText().toString())){
+                jarijariet.setError("Required");
+                tinggiet.setError("Required");
+            }else {
+                double jarijari = Double.parseDouble(jarijariet.getText().toString());
+                double tinggi = Double.parseDouble((tinggiet.getText().toString()));
+                double hasil = (1.0/3.0)*(3.14)*(jarijari*jarijari)* tinggi;
+                hasiltxt.setText(String.format("%.2f", hasil));
+            }
+
         });
         return view;
     }

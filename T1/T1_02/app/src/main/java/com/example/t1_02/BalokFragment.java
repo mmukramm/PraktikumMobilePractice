@@ -1,9 +1,13 @@
 package com.example.t1_02;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +36,17 @@ public class BalokFragment extends Fragment {
         hasiltxt = (TextView) view.findViewById(R.id.hasil);
 
         myButton.setOnClickListener(view1 -> {
-            double panjang = Double.parseDouble(panjanget.getText().toString());
-            double lebar = Double.parseDouble(lebaret.getText().toString());
-            double tinggi = Double.parseDouble(tinggiet.getText().toString());
-            double hasil = panjang*lebar*tinggi;
-            hasiltxt.setText(String.format("%.2f", hasil));
+            if (TextUtils.isEmpty(panjanget.getText().toString()) || TextUtils.isEmpty(lebaret.getText().toString()) || TextUtils.isEmpty(tinggiet.getText().toString())){
+                panjanget.setError("Required");
+                lebaret.setError("Required");
+                tinggiet.setError("Required");
+            }else {
+                double panjang = Double.parseDouble(panjanget.getText().toString());
+                double lebar = Double.parseDouble(lebaret.getText().toString());
+                double tinggi = Double.parseDouble(tinggiet.getText().toString());
+                double hasil = panjang*lebar*tinggi;
+                hasiltxt.setText(String.format("%.2f", hasil));
+            }
         });
         return view;
     }

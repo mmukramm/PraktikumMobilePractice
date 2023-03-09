@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,13 @@ public class BolaFragment extends Fragment {
         jarijariet = (EditText) view.findViewById(R.id.jarijariet);
         hasiltxt = (TextView) view.findViewById(R.id.hasil);
         myButton.setOnClickListener(view1 -> {
-            double jarijari = Double.parseDouble(jarijariet.getText().toString());
-            double hasil = (4.0/3.0)*(3.14)*(Math.pow(jarijari, 3));
-            hasiltxt.setText(String.format("%.2f", hasil));
+            if (TextUtils.isEmpty(jarijariet.getText().toString())){
+                jarijariet.setError("Required");
+            }else {
+                double jarijari = Double.parseDouble(jarijariet.getText().toString());
+                double hasil = (4.0/3.0)*(3.14)*(Math.pow(jarijari, 3));
+                hasiltxt.setText(String.format("%.2f", hasil));
+            }
         });
         return view;
     }
