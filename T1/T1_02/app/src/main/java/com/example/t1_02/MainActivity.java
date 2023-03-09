@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        System.out.println("Haloooooooooooooo salahkoooooooooo");
         String selected = (String) adapterView.getItemAtPosition(i);
 
         FragmentManager fm = getSupportFragmentManager();
