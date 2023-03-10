@@ -48,22 +48,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-//        System.out.println("");
-    }
+    public void onNothingSelected(AdapterView<?> adapterView) {}
 }
-
-//class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
-//
-//    public void onItemSelected(AdapterView<?> parent, View view,
-//                               int pos, long id) {
-//        // An item was selected. You can retrieve the selected item using
-//        // parent.getItemAtPosition(pos)
-//        System.out.println( (String)parent.getItemAtPosition(pos));
-//        System.out.println("Salaahkoooooooooooooooooo");
-//    }
-//
-//    public void onNothingSelected(AdapterView<?> parent) {
-//        // Another interface callback
-//    }
-//}
