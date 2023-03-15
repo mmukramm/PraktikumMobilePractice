@@ -11,6 +11,7 @@ import com.example.t2.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private ActivityMainBinding binding;
+    private Boolean operation = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         View view = binding.getRoot();
         setContentView(view);
         setClick();
-        Log.d("halo1", "onCreate: " + binding.button0);
     }
 
     @Override
@@ -30,59 +30,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             opTV = "";
             binding.operationTV.setText("");
         }
-        switch (button.getText().toString()){
-            case "0":
-                binding.operationTV.setText(opTV + "0");
-                break;
-            case "1":
-                binding.operationTV.setText(opTV + "1");
-                break;
-            case "2":
-                binding.operationTV.setText(opTV + "2");
-                break;
-            case "3":
-                binding.operationTV.setText(opTV + "3");
-                break;
-            case "4":
-                binding.operationTV.setText(opTV + "4");
-                break;
-            case "5":
-                binding.operationTV.setText(opTV + "5");
-                break;
-            case "6":
-                binding.operationTV.setText(opTV + "6");
-                break;
-            case "7":
-                binding.operationTV.setText(opTV + "7");
-                break;
-            case "8":
-                binding.operationTV.setText(opTV + "8");
-                break;
-            case "9":
-                binding.operationTV.setText(opTV + "9");
-                break;
-            case "+":
-                binding.operationTV.setText(opTV + "+");
-                break;
-            case "-":
-                binding.operationTV.setText(opTV + "-");
-                break;
-            case "x":
-                binding.operationTV.setText(opTV + "x");
-                break;
-            case "/":
-                binding.operationTV.setText(opTV + "/");
-                break;
-            case "=":
-                binding.operationTV.setText(opTV + "=");
-                break;
-            case "AC":
-                binding.operationTV.setText("");
-                break;
-            case "Del":
-                binding.operationTV.setText(binding.operationTV.getText().toString().substring(0, binding.operationTV.getText().toString().length() - 1));
-                break;
+
+        if (button.getText().toString().equals("AC")) {
+            binding.operationTV.setText("0");
+            return;
         }
+
+        if (button.getText().toString().equals("Del")){
+            if (opTV.length() == 0 || opTV.length() == 1){
+                binding.operationTV.setText("0");
+                return;
+            }
+            binding.operationTV.setText(opTV.substring(0, opTV.length() - 1));
+            operation = (isNumber(opTV.substring(opTV.length() - 2, opTV.length() - 1))) ? true : false;
+            return;
+        }
+
+        if (isNumber(button.getText().toString())){
+            binding.operationTV.setText(opTV + button.getText().toString());
+            operation = true;
+        }
+
+        if (!isNumber(button.getText().toString())){
+            if (opTV.length() == 0) {
+                binding.operationTV.setText("0");
+                return;
+            }
+            if (!operation) return;
+            binding.operationTV.setText(opTV + button.getText().toString());
+            operation = false;
+        }
+    }
+
+    public boolean isNumber(String str){
+        if (str == null) return false;
+        try {
+            Double.parseDouble(str);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 
     public void setClick(){
