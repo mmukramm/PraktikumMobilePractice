@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.t2.databinding.ActivityMainBinding;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-    private Boolean operation = false;
+    private Boolean operation = true;
     private Boolean operated = false;
 
     @Override
@@ -31,14 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button = (Button) view;
         Log.d("halo3", "onClick: " + button.getText().toString());
         String opTV = binding.operationTV.getText().toString();
-        if (opTV.equals("0")) {
-            opTV = "";
-            binding.operationTV.setText("");
-        }
+
+//        if (opTV.equals("0")) {
+//            opTV = "";
+//            binding.operationTV.setText("");
+//        }
 
         if (button.getText().toString().equals("AC")) {
             binding.operationTV.setText("0");
-            operation = false;
+//            operation = false;
             return;
         }
 
@@ -53,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (isNumber(button.getText().toString())) {
+            if (opTV.equals("0")) {
+                opTV = "";
+                binding.operationTV.setText("");
+            }
             if (operated) {
                 binding.operationTV.setText(button.getText().toString());
                 operated = false;
@@ -85,10 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         arr.add(dump);
                     }
                 }
-//                for (int i = 0; i < arr.size(); i++) {
-//                    System.out.println("ArrList:    " + arr.get(i));
-//                }
-
+                for (int i = 0; i < arr.size(); i++) {
+                    System.out.println("ArrList:    " + arr.get(i));
+                }
                 double dumpResult = 0;
                 for (int i = 0; i < arr.size(); i++) {
                     if (arr.get(i).equals("*")) {
@@ -99,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         i--;
                     }
                     if (arr.get(i).equals("/")) {
+                        if (Double.parseDouble(arr.get(i + 1)) == 0) {
+                            Toast.makeText(this, "Cannot divided by 0", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         dumpResult = Double.parseDouble(arr.get(i - 1)) / Double.parseDouble(arr.get(i + 1));
                         arr.set(i - 1, String.valueOf(dumpResult));
                         arr.remove(i);
@@ -126,17 +135,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 System.out.println("Result: " + result);
-
-//                if (String.valueOf(result).endsWith(".0")) String.valueOf(result).replace(".0", "");
-                binding.operationTV.setText(String.valueOf(result));
-                operation = false;
+                String setRes = String.valueOf(result);
+                if (setRes.endsWith(".0")) setRes = setRes.substring(0, setRes.length() - 2);
+                binding.operationTV.setText(setRes);
                 operated = true;
                 return;
             } else {
+                System.out.println("Operation: Masuk di bukan nomor");
                 binding.operationTV.setText(opTV + button.getText().toString());
                 operation = false;
+                operated = false;
             }
-
         }
     }
 
