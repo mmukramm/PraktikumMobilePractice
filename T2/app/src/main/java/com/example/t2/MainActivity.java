@@ -15,8 +15,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-    private Boolean operation = true;
-    private Boolean operated = false;
+    private Boolean operation = true; // Untuk melihat apakah operator terakhir adalah angka atau bukan
+    private Boolean operated = false; // Untuk melihat apakah hasil sudah dioperasikan atau belum
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +30,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         Button button = (Button) view;
-        Log.d("halo3", "onClick: " + button.getText().toString());
         String opTV = binding.operationTV.getText().toString();
-
-//        if (opTV.equals("0")) {
-//            opTV = "";
-//            binding.operationTV.setText("");
-//        }
 
         if (button.getText().toString().equals("AC")) {
             binding.operationTV.setText("0");
-//            operation = false;
             return;
         }
 
         if (button.getText().toString().equals("Del")) {
-            if (opTV.length() == 0 || opTV.length() == 1) {
+            if (opTV.length() == 0 || opTV.length() == 1 || operated) {
                 binding.operationTV.setText("0");
                 return;
             }
+
             binding.operationTV.setText(opTV.substring(0, opTV.length() - 1));
             operation = (isNumber(opTV.substring(opTV.length() - 2, opTV.length() - 1))) ? true : false;
             return;
@@ -91,9 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         arr.add(dump);
                     }
                 }
-                for (int i = 0; i < arr.size(); i++) {
-                    System.out.println("ArrList:    " + arr.get(i));
-                }
                 double dumpResult = 0;
                 for (int i = 0; i < arr.size(); i++) {
                     if (arr.get(i).equals("*")) {
@@ -115,9 +106,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         i--;
                     }
                 }
-                for (int i = 0; i < arr.size(); i++) {
-                    System.out.println("ArrList:    " + arr.get(i));
-                }
                 double result = Double.parseDouble(arr.get(0));
 
                 for (int i = 0; i < arr.size(); i++) {
@@ -134,14 +122,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         i--;
                     }
                 }
-                System.out.println("Result: " + result);
                 String setRes = String.valueOf(result);
                 if (setRes.endsWith(".0")) setRes = setRes.substring(0, setRes.length() - 2);
                 binding.operationTV.setText(setRes);
                 operated = true;
                 return;
             } else {
-                System.out.println("Operation: Masuk di bukan nomor");
                 binding.operationTV.setText(opTV + button.getText().toString());
                 operation = false;
                 operated = false;
