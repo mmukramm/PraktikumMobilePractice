@@ -31,6 +31,7 @@
                     android:layout_height="40dp"
                     app:cardCornerRadius="100dp">
                     <ImageView
+                        android:id="@+id/userProfileImg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@string/userprofile"
@@ -39,7 +40,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv_username"
+                    android:id="@+id/usernameTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -57,7 +58,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgPost"
+                    android:id="@+id/postImage"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:contentDescription="@string/userpost"
@@ -65,6 +66,7 @@
                     android:src="@drawable/noimg" />
 
                 <TextView
+                    android:id="@+id/displayCaptionTv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="20dp"
