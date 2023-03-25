@@ -22,6 +22,11 @@
         <item name="android:backgroundTint">@color/Teal_White</item>
     </style>
 
+    <style name="roundedImg">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="captionFormStyle">
         <item name="android:background">@drawable/form_bg</item>
         <item name="android:backgroundTint">@color/Teal_White</item>
