@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">T3_01</string>
+    <string name="make_post">Make Post</string>
+    <string name="write_caption">Write Caption:</string>
+    <string name="upload">Upload</string>
+    <string name="add_caption_here">Add caption here...</string>
+    <string name="imageuploaded">imageUploaded</string>
+    <string name="submit">Submit</string>
+    <string name="full_name">Full Name</string>
+    <string name="username">Username</string>
+    <string name="userprofile">userProfile</string>
+    <string name="userpost">userPost</string>
+    <string name="no_caption">No caption</string>
 </resources>
