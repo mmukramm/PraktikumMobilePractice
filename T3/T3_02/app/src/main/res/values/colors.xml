@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="French_Grey">#FFC8BFC7</color>
+    <color name="Black_Roy">#FF2E2532</color>
+    <color name="Raisin_Black">#FF201A23</color>
+    <color name="Magenta_Haze">#FF9E4770</color>
+    <color name="Eminence">#FF631D76</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
