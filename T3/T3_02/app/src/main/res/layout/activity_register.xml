@@ -103,6 +103,7 @@
                     android:layout_height="match_parent"
                     android:background="@color/French_Grey"
                     android:hint="Username"
+                    android:textColorHint="@color/Raisin_Black"
                     android:paddingHorizontal="20dp"
                     android:textColor="@color/Raisin_Black" />
             </androidx.cardview.widget.CardView>

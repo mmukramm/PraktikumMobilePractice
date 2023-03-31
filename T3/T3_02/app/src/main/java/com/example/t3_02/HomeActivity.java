@@ -13,21 +13,37 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView profileImage;
     private TextView usernameText, scoreText;
     private Button playButton;
+    private Boolean played = false;
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         usernameText = findViewById(R.id.usernameText);
         profileImage = findViewById(R.id.profileImage);
+        playButton = findViewById(R.id.playButton);
+        scoreText = findViewById(R.id.scoreText);
 
-        User user = getIntent().getParcelableExtra("User");
+        String getBestScore = getIntent().getStringExtra("bestscore");
+        System.out.println(getBestScore);
+
+        if (getBestScore != null && Integer.valueOf(getBestScore) > Integer.valueOf(scoreText.getText().toString())){
+            played = true;
+            scoreText.setText(getBestScore);
+        }
+
+        user = getIntent().getParcelableExtra("User");
         usernameText.setText(user.getUsername());
         profileImage.setImageURI(user.getProfileImage());
+        if (played){
+            playButton.setText("Play Again!");
+        }
 
-        playButton = findViewById(R.id.playButton);
         playButton.setOnClickListener(v -> {
             Intent i = new Intent(this, MainActivity.class);
+            i.putExtra("User", user);
             startActivity(i);
+            finish();
         });
 
     }

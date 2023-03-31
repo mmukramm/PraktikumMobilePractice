@@ -86,6 +86,7 @@
                     android:textColor="@color/Black_Roy"
                     android:textSize="26sp" />
                 <TextView
+                    android:id="@+id/scoreTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -105,6 +106,7 @@
                     android:textColor="@color/Black_Roy"
                     android:textSize="16sp" />
                 <TextView
+                    android:id="@+id/bestScoreTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -118,7 +120,7 @@
                 app:cardCornerRadius="20dp"
                 android:layout_height="48dp">
                 <Button
-                    android:id="@+id/playButton"
+                    android:id="@+id/backHomeButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/Black_Roy"

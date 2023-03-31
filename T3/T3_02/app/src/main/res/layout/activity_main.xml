@@ -140,6 +140,7 @@
             app:layout_constraintTop_toBottomOf="@id/headerLayout">
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/opsi1"
+                android:textColor="@color/Raisin_Black"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/rounded_button"
@@ -149,6 +150,7 @@
                 android:text="JAWABAN 1" />
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/opsi2"
+                android:textColor="@color/Raisin_Black"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/rounded_button"
@@ -158,6 +160,7 @@
                 android:text="JAWABAN 2" />
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/opsi3"
+                android:textColor="@color/Raisin_Black"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/rounded_button"
@@ -167,6 +170,7 @@
                 android:text="JAWABAN 3" />
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/opsi4"
+                android:textColor="@color/Raisin_Black"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/rounded_button"
