@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(this, "Set your username", Toast.LENGTH_SHORT).show();
                 return;
             }
-            User user = new User(username, selectedImage);
+            User user = new User(username,0, selectedImage);
             Intent i = new Intent(this, HomeActivity.class).addFlags(FLAG_ACTIVITY_NO_ANIMATION);
             i.putExtra("User", user);
             startActivity(i);

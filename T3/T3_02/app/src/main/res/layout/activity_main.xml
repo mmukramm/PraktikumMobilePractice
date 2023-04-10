@@ -64,7 +64,6 @@
                 android:scaleY="-1"
                 android:layout_marginTop="15dp"/>
             <ImageView
-                android:id="@+id/headerWave"
                 android:layout_below="@id/headerView"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -72,7 +71,6 @@
                 android:backgroundTint="@color/Black_Roy"
                 android:scaleY="-1"/>
             <TextView
-                android:id="@+id/LogoText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

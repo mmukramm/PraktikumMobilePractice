@@ -8,20 +8,39 @@
     tools:context=".MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/chats_background">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_margin="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
             <TextView
+                android:id="@+id/chatTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chats"
+                android:textColor="@color/white_olive"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 />
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/white_olive"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/home_chat_item"
+                    tools:itemCount="6"/>
+            </RelativeLayout>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

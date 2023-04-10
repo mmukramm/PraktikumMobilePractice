@@ -13,7 +13,6 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView profileImage;
     private TextView usernameText, scoreText;
     private Button playButton;
-    private Boolean played = false;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,21 +22,20 @@ public class HomeActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.profileImage);
         playButton = findViewById(R.id.playButton);
         scoreText = findViewById(R.id.scoreText);
+        user = getIntent().getParcelableExtra("User");
 
         String getBestScore = getIntent().getStringExtra("bestscore");
-        System.out.println(getBestScore);
-
-        if (getBestScore != null && Integer.valueOf(getBestScore) > Integer.valueOf(scoreText.getText().toString())){
-            played = true;
-            scoreText.setText(getBestScore);
+        if (getBestScore != null){
+            int bestScore = Integer.parseInt(getBestScore);
+            playButton.setText("Play Again!");
+            if (bestScore > user.getScore()){
+                user.setScore(bestScore);
+            }
+            scoreText.setText(String.valueOf(user.getScore()));
         }
 
-        user = getIntent().getParcelableExtra("User");
         usernameText.setText(user.getUsername());
         profileImage.setImageURI(user.getProfileImage());
-        if (played){
-            playButton.setText("Play Again!");
-        }
 
         playButton.setOnClickListener(v -> {
             Intent i = new Intent(this, MainActivity.class);
@@ -45,6 +43,5 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         });
-
     }
 }

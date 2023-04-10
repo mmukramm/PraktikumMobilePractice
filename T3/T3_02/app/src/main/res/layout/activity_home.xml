@@ -44,7 +44,6 @@
                 android:scaleY="-1" />
 
             <ImageView
-                android:id="@+id/headerWave"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_below="@id/titleContainer"
@@ -52,7 +51,6 @@
                 android:backgroundTint="@color/Black_Roy"
                 android:scaleY="-1" />
             <TextView
-                android:id="@+id/LogoText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -64,7 +62,6 @@
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/profileImageContainer"
             android:layout_width="180dp"
             android:layout_height="180dp"
             app:cardCornerRadius="150dp"

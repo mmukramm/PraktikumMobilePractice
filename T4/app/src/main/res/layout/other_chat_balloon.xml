@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/other_bubble_chat"
+        android:paddingVertical="10dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/chatTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lectus urna, mattis id viverra non, viverra a leo. Nulla magna ligula, porttitor eget augue vitae, laoreet tempus nulla. Maecenas convallis dictum tellus a tincidunt. Curabitur sollicitudin nunc a libero tristique facilisis. Curabitur cursus sodales ex, in scelerisque nisi ullamcorper eget. Cras rhoncus lobortis bibendum. In condimentum mauris ut enim luctus fringilla vel eu mi."
+            android:textColor="@color/dark_purple"
+            android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="20.20"/>
+    </LinearLayout>
+
+</RelativeLayout>

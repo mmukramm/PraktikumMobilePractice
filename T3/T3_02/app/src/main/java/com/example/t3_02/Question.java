@@ -4,7 +4,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 public class Question {
     private String questionSection, answer, opsi1, opsi2, opsi3, opsi4;
-    private int questionNumber, score;
+    private int score;
 
     public Question(int score, String questionSection, String opsi1, String opsi2, String opsi3, String opsi4, String answer) {
         this.score = score;
@@ -16,9 +16,6 @@ public class Question {
         this.answer = answer;
     }
 
-    public int getQuestionNumber() {
-        return questionNumber;
-    }
 
     public String getQuestionSection() {
         return questionSection;

@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         opsi4 = findViewById(R.id.opsi4);
 
         user = getIntent().getParcelableExtra("User");
-        System.out.println("Main : " + user.getUsername());
 
         makeQuestion();
         questions.addAll(Arrays.asList(question1, question2, question3, question4, question5, question6, question7, question8));
@@ -73,17 +72,14 @@ public class MainActivity extends AppCompatActivity {
         enableStatus(false);
         if (answer.equals(selectedQuestion.getAnswer())) {
             button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.Cerulean_Blue));
-//            button.setTextColor(ContextCompat.getColorStateList(this, R.color.French_Grey));
             score += selectedQuestion.getScore();
         } else {
             button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.Red_Violet));
-//            button.setTextColor(ContextCompat.getColorStateList(this, R.color.French_Grey));
         }
-        System.out.println("Score ============================ " + score);
+
         button.postDelayed(() -> {
             enableStatus(true);
-//            button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.));
-            button.setTextColor(ContextCompat.getColorStateList(this, R.color.white));
+            button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.French_Grey));
             selectedQuestion = questions.pop();
             setQuestion(selectedQuestion);
         }, 1500);
