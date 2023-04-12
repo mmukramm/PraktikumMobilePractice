@@ -1,23 +1,14 @@
 package com.example.t4;
 
 public class ChatModel {
-    private int sender, receiver;
+    private int receiver;
     private String message;
     private String timestamp;
 
-    public ChatModel(int sender, int receiver, String message, String timestamp) {
-        this.sender = sender;
+    public ChatModel(int receiver, String message, String timestamp) {
         this.receiver = receiver;
         this.message = message;
         this.timestamp = timestamp;
-    }
-
-    public int getSender() {
-        return sender;
-    }
-
-    public void setSender(int sender) {
-        this.sender = sender;
     }
 
     public String getMessage() {

@@ -5,16 +5,22 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.material.internal.ParcelableSparseArray;
+
+import java.util.ArrayList;
+
 public class UserModel implements Parcelable {
     private int idUser;
     private String name, phoneNumber, status, profilePictureUrl;
+    private ArrayList<ChatModel> chats;
 
-    public UserModel(int idUser, String name, String phoneNumber, String status, String profilePictureUrl) {
+    public UserModel(int idUser, String name, String phoneNumber, String status, String profilePictureUrl, ArrayList<ChatModel> chats) {
         this.idUser = idUser;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.status = status;
         this.profilePictureUrl = profilePictureUrl;
+        this.chats = chats;
     }
 
     protected UserModel(Parcel in) {
@@ -36,6 +42,14 @@ public class UserModel implements Parcelable {
             return new UserModel[size];
         }
     };
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
 
     public String getName() {
         return name;
@@ -69,12 +83,12 @@ public class UserModel implements Parcelable {
         this.profilePictureUrl = profilePictureUrl;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public ArrayList<ChatModel> getChats() {
+        return chats;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setChats(ArrayList<ChatModel> chats) {
+        this.chats = chats;
     }
 
     @Override
