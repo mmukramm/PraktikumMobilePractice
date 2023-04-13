@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class UserData {
-    private UserModel user0, user1, user2, user3, user4;
-    private ArrayList<ChatModel> user0Chat, user1Chat, user2Chat, user3Chat, user4Chat;
+    private static UserModel user0, user1, user2, user3, user4;
+    private static ArrayList<ChatModel> user0Chat, user1Chat, user2Chat, user3Chat, user4Chat;
 
-    private void setUserChat(){
+    private static void setUserChat(){
         user0Chat = new ArrayList<ChatModel>(
                 Arrays.asList(
                         new ChatModel(1, "Hello, I'm User 0", "10.10"),
@@ -102,14 +102,14 @@ public class UserData {
 
     }
 
-    private void setUser(){
+    private static void setUser(){
         setUserChat();
         user0 = new UserModel(
                 0,
                 "MySelf",
                 "081234567890",
                 "Hello, I'm User 0",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Osamu_Dazai.jpg/640px-Osamu_Dazai.jpg",
+                "https://i.pinimg.com/236x/35/dd/6a/35dd6a82000dcce2d27ff6d74d105606.jpg",
                 user0Chat
         );
         user1 = new UserModel(
@@ -146,7 +146,8 @@ public class UserData {
         );
     }
 
-    public ArrayList<UserModel> getUser(){
+    public static ArrayList<UserModel> getUser(){
+        setUser();
         ArrayList<UserModel> user = new ArrayList<UserModel>(Arrays.asList(user0, user1, user2, user3, user4));
         return user;
     }
