@@ -26,6 +26,7 @@
             android:layout_marginHorizontal="10dp"
             app:cardCornerRadius="100dp">
             <ImageView
+                android:id="@+id/profileChatIv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_launcher_background" />

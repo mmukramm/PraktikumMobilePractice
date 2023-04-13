@@ -1,6 +1,13 @@
 package com.example.t4;
 
-public class ChatModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
+public class ChatModel implements Serializable {
     private int receiver;
     private String message;
     private String timestamp;
@@ -11,6 +18,15 @@ public class ChatModel {
         this.timestamp = timestamp;
     }
 
+
+    public int getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(int receiver) {
+        this.receiver = receiver;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -19,19 +35,11 @@ public class ChatModel {
         this.message = message;
     }
 
-    public String  getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public int getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(int receiver) {
-        this.receiver = receiver;
     }
 }
