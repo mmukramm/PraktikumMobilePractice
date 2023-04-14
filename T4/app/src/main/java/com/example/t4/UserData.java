@@ -10,92 +10,92 @@ public class UserData {
     private static void setUserChat(){
         user0Chat = new ArrayList<ChatModel>(
                 Arrays.asList(
-                        new ChatModel(1, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "10.10"),
-                        new ChatModel(1, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "10.10"),
-                        new ChatModel(1, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10.10"),
-                        new ChatModel(1, "Aliquam ac purus elementum", "10.10"),
-                        new ChatModel(1, "Quisque justo nibh", "10.10"),
-                        new ChatModel(1, "Sed id velit aliquam, malesuada tortor sagittis, maximus felis.", "10.10"),
-                        new ChatModel(1, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10"),
+                        new ChatModel(1, "Hello, I'm User 0", "10:10"),
+                        new ChatModel(1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "10:10"),
+                        new ChatModel(1, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "10:10"),
+                        new ChatModel(1, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10:15"),
+                        new ChatModel(1, "Aliquam ac purus elementum", "10:17"),
+                        new ChatModel(1, "Quisque justo nibh", "10:19"),
+                        new ChatModel(1, "Sed id velit aliquam, malesuada tortor sagittis, maximus felis.", "10:25"),
+                        new ChatModel(1, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10:30"),
 
-                        new ChatModel(2, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(2, "Quisque justo nibh", "10.10"),
-                        new ChatModel(2, "Suspendisse et sapien velit.", "10.10"),
-                        new ChatModel(2, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(2, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10"),
-                        new ChatModel(2, "Suspendisse et sapien velit.", "10.10"),
-                        new ChatModel(2, "Sed id velit aliquam", "10.10"),
-                        new ChatModel(2, "velit aliquam", "10.10"),
-                        new ChatModel(2, "Nam eleifend", "10.10"),
+                        new ChatModel(2, "Hello, I'm User 0", "11:15"),
+                        new ChatModel(2, "Quisque justo nibh", "11:15"),
+                        new ChatModel(2, "Suspendisse et sapien velit.", "11:18"),
+                        new ChatModel(2, "Hello, I'm User 0", "11:18"),
+                        new ChatModel(2, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "11:25"),
+                        new ChatModel(2, "Suspendisse et sapien velit.", "11:26"),
+                        new ChatModel(2, "Sed id velit aliquam", "11:30"),
+                        new ChatModel(2, "velit aliquam", "11:35"),
+                        new ChatModel(2, "Nam eleifend", "11:35"),
 
-                        new ChatModel(3, "ello, Suspendisse et sapien velit. Fusce ex lorem", "10.10"),
-                        new ChatModel(3, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(3, "lOREM ipsum color", "10.10"),
-                        new ChatModel(3, "Sed id velit aliquam", "10.10"),
-                        new ChatModel(3, "Fusce ex lorem", "10.10"),
-                        new ChatModel(3, "Hello, velit aliquam", "10.10"),
-                        new ChatModel(3, "Sed tempor libero eget nisl accumsan", "10.10"),
-                        new ChatModel(3, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan", "10.10"),
-                        new ChatModel(3, "libero eget nisl accumsan", "10.10"),
+                        new ChatModel(3, "ello, Suspendisse et sapien velit. Fusce ex lorem", "11:16"),
+                        new ChatModel(3, "Hello, I'm User 0", "11:20"),
+                        new ChatModel(3, "lOREM ipsum color", "11:20"),
+                        new ChatModel(3, "Sed id velit aliquam", "11:25"),
+                        new ChatModel(3, "Fusce ex lorem", "11:25"),
+                        new ChatModel(3, "Hello, velit aliquam", "11:25"),
+                        new ChatModel(3, "Sed tempor libero eget nisl accumsan", "11:30"),
+                        new ChatModel(3, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan", "11:31"),
+                        new ChatModel(3, "libero eget nisl accumsan", "11:35"),
 
-                        new ChatModel(4, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(4, "Hai, Aliquam ac purus elementum", "10.10"),
-                        new ChatModel(4, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia", "10.10"),
-                        new ChatModel(4, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(4, "Sed id velit aliquam", "10.10"),
-                        new ChatModel(4, "Hello, I'm User 0", "10.10"),
-                        new ChatModel(4, "libero eget nisl accumsan", "10.10"),
-                        new ChatModel(4, "Aliquam ac purus elementum", "10.10"),
-                        new ChatModel(4, "Aliquam ac purus elementum", "10.10")
+                        new ChatModel(4, "Hello, I'm User 0", "12:00"),
+                        new ChatModel(4, "Hai, Aliquam ac purus elementum", "12:00"),
+                        new ChatModel(4, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia", "12:05"),
+                        new ChatModel(4, "Hello, I'm User 0", "12:10"),
+                        new ChatModel(4, "Sed id velit aliquam", "12:10"),
+                        new ChatModel(4, "Hello, I'm User 0", "12:20"),
+                        new ChatModel(4, "libero eget nisl accumsan", "12:20"),
+                        new ChatModel(4, "Aliquam ac purus elementum", "12:20"),
+                        new ChatModel(4, "Aliquam ac purus elementum", "12:25")
                 )
         );
         user1Chat = new ArrayList<ChatModel>(
                 Arrays.asList(
-                        new ChatModel(0, "Hello, I'm Dazai Osamu", "10.10"),
-                        new ChatModel(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "10.10"),
-                        new ChatModel(0, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "10.10"),
-                        new ChatModel(0, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10.10"),
-                        new ChatModel(0, "Fusce ex lorem", "10.10"),
-                        new ChatModel(0, "Hello, velit aliquam", "10.10"),
-                        new ChatModel(0, "Sed tempor libero eget nisl accumsan", "10.10"),
-                        new ChatModel(0, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10")
+                        new ChatModel(0, "Hello, I'm Dazai Osamu", "10:12"),
+                        new ChatModel(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "10:13"),
+                        new ChatModel(0, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "10:18"),
+                        new ChatModel(0, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10:18"),
+                        new ChatModel(0, "Fusce ex lorem", "10:18"),
+                        new ChatModel(0, "Hello, velit aliquam", "10:20"),
+                        new ChatModel(0, "Sed tempor libero eget nisl accumsan", "10:26"),
+                        new ChatModel(0, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10:28")
                 )
         );
         user2Chat = new ArrayList<ChatModel>(
                 Arrays.asList(
-                        new ChatModel(0, "Hello, I'm Oda Eiichiro", "10.10"),
-                        new ChatModel(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "10.10"),
-                        new ChatModel(0, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10.10"),
-                        new ChatModel(0, "massa, id porta magna volutpat at.", "10.10"),
-                        new ChatModel(0, "Sed id velit aliquam, malesuada tortor sagittis, maximus felis.", "10.10"),
-                        new ChatModel(0, "Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10"),
-                        new ChatModel(0, "Quisque justo nibh", "10.10"),
-                        new ChatModel(0, "Aliquam ac purus elementum", "10.10")
+                        new ChatModel(0, "Hello, I'm Oda Eiichiro", "11:16"),
+                        new ChatModel(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "11:20"),
+                        new ChatModel(0, "Donec pretium tellus ac urna rhoncus feugiat. Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "11:25"),
+                        new ChatModel(0, "massa, id porta magna volutpat at.", "11:25"),
+                        new ChatModel(0, "Sed id velit aliquam, malesuada tortor sagittis, maximus felis.", "11:25"),
+                        new ChatModel(0, "Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "11:30"),
+                        new ChatModel(0, "Quisque justo nibh", "11:30"),
+                        new ChatModel(0, "Aliquam ac purus elementum", "11:35")
                 )
         );
         user3Chat = new ArrayList<ChatModel>(
                 Arrays.asList(
-                        new ChatModel(0, "Hello, I'm Miyazaki Hayao", "10.10"),
-                        new ChatModel(0, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "10.10"),
-                        new ChatModel(0, "Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10.10"),
-                        new ChatModel(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "10.10"),
-                        new ChatModel(0, "Fusce ex lorem", "10.10"),
-                        new ChatModel(0, "Quisque justo nibh", "10.10"),
-                        new ChatModel(0, "Aliquam ac purus elementum", "10.10"),
-                        new ChatModel(0, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10")
+                        new ChatModel(0, "Hello, I'm Miyazaki Hayao", "11:16"),
+                        new ChatModel(0, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "11:20"),
+                        new ChatModel(0, "Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "11:20"),
+                        new ChatModel(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet elementum erat, a luctus orci. ", "11:25"),
+                        new ChatModel(0, "Fusce ex lorem", "11:30"),
+                        new ChatModel(0, "Quisque justo nibh", "11:35"),
+                        new ChatModel(0, "Aliquam ac purus elementum", "11:37"),
+                        new ChatModel(0, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "11:40")
                 )
         );
         user4Chat = new ArrayList<ChatModel>(
                 Arrays.asList(
-                        new ChatModel(0, "Hello, I'm Ranpo Edogawa", "10.10"),
-                        new ChatModel(0, "Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "10.10"),
-                        new ChatModel(0, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "10.10"),
-                        new ChatModel(0, "Sed id velit aliquam, malesuada tortor sagittis, maximus felis.", "10.10"),
-                        new ChatModel(0, "Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10"),
-                        new ChatModel(0, "Quisque justo nibh", "10.10"),
-                        new ChatModel(0, "Pukus pukus laperto tele", "10.10"),
-                        new ChatModel(0, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "10.10")
+                        new ChatModel(0, "Hello, I'm Ranpo Edogawa", "12:03"),
+                        new ChatModel(0, "Sed tempor libero eget nisl accumsan, eu fringilla risus feugiat. Suspendisse potenti. Fusce a dui arcu", "12:07"),
+                        new ChatModel(0, "Vivamus rhoncus efficitur massa, id porta magna volutpat at.", "12:07"),
+                        new ChatModel(0, "Sed id velit aliquam, malesuada tortor sagittis, maximus felis.", "12:07"),
+                        new ChatModel(0, "Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "12:12"),
+                        new ChatModel(0, "Quisque justo nibh", "12:13"),
+                        new ChatModel(0, "Pukus pukus laperto tele", "12:18"),
+                        new ChatModel(0, "Nam eleifend sed justo ut facilisis. Suspendisse et sapien velit. Fusce ex lorem, tempus vel lacinia ac, tempus eu enim.", "12:20")
                 )
         );
 
