@@ -27,7 +27,6 @@
                 android:textStyle="bold"
                 />
             <View
-                android:id="@+id/line"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_marginVertical="10dp"

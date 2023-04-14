@@ -10,39 +10,25 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 public class ProfilePictureActivity extends AppCompatActivity {
-    private TextView usernameTv, phoneNumberTv, statusTv;
-    private ImageView profilePictureIv, backBtn;
+    private ImageView backBtn, profileIv;
+    private TextView usernamePreviewTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_picture);
 
-        usernameTv = findViewById(R.id.usernameTv);
-        phoneNumberTv = findViewById(R.id.phoneNumberTv);
-        statusTv = findViewById(R.id.statusTv);
         backBtn = findViewById(R.id.backBtn);
-        profilePictureIv = findViewById(R.id.profilePictureIv);
+        usernamePreviewTv = findViewById(R.id.usernamePreviewTv);
+        profileIv = findViewById(R.id.profileIv);
 
         String username = getIntent().getStringExtra("username");
-        String phoneNumber = getIntent().getStringExtra("phoneNumber");
-        String status = getIntent().getStringExtra("status");
         String profilePictureUrl = getIntent().getStringExtra("profilePictureUrl");
 
-        usernameTv.setText(username);
-        phoneNumberTv.setText(phoneNumber);
-        statusTv.setText(status);
         Glide.with(getApplicationContext())
                 .load(profilePictureUrl)
-                .centerCrop()
-                .into(profilePictureIv);
+                .into(profileIv);
 
+        usernamePreviewTv.setText(username);
         backBtn.setOnClickListener(v -> finish());
-
-        profilePictureIv.setOnClickListener(v -> {
-            Intent i = new Intent(ProfilePictureActivity.this, ProfileActivity.class);
-            i.putExtra("username", username);
-            i.putExtra("profilePictureUrl", profilePictureUrl);
-            startActivity(i);
-        });
     }
 }

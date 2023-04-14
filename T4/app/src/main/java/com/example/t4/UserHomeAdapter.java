@@ -24,8 +24,12 @@ import java.util.Arrays;
 
 public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHolder>{
     private ArrayList<UserModel> users;
+    private UserModel myAccount;
 
-    public UserHomeAdapter(ArrayList<UserModel> users) { this.users = users; }
+    public UserHomeAdapter(ArrayList<UserModel> users, UserModel myAccount) {
+        this.users = users;
+        this.myAccount = myAccount;
+    }
 
     @NonNull
     @Override
@@ -36,11 +40,17 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull UserHomeAdapter.ViewHolder holder, int position) {
-        UserModel myAccount = users.get(0);
         UserModel user = users.get(position);
 
+        ArrayList<ChatModel> chats = users.get(holder.getAdapterPosition()).getChats();
+        for (int i = 0; i < myAccount.getChats().size(); i++) {
+            if ( users.get(holder.getAdapterPosition()).getIdUser() == myAccount.getChats().get(i).getReceiver() ) {
+                chats.add(myAccount.getChats().get(i));
+            }
+        }
+
         holder.usernamePreviewTv.setText(user.getName());
-        holder.chatPreviewTv.setText(user.getChats().get(user.getChats().size() - 1).getMessage());
+        holder.chatPreviewTv.setText(chats.get(chats.size() - 1).getMessage());
         holder.timeTv.setText(user.getChats().get(user.getChats().size() - 1).getTimestamp());
         Glide.with(holder.itemView.getContext())
                 .load(user.getProfilePictureUrl())
@@ -49,7 +59,7 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
                 .into(holder.profileIv);
 
         holder.profileIv.setOnClickListener(view -> {
-            Intent intent = new Intent(holder.itemView.getContext(), ProfileActivity.class);
+            Intent intent = new Intent(holder.itemView.getContext(), ProfilePictureActivity.class);
             intent.putExtra("username", user.getName());
             intent.putExtra("profilePictureUrl", user.getProfilePictureUrl());
             holder.itemView.getContext().startActivity(intent);
@@ -60,18 +70,6 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
             String profilePictureUrl = users.get(holder.getAdapterPosition()).getProfilePictureUrl();
             String phoneNumber = users.get(holder.getAdapterPosition()).getPhoneNumber();
             String status = users.get(holder.getAdapterPosition()).getStatus();
-            ArrayList<ChatModel> chats = users.get(holder.getAdapterPosition()).getChats();
-            System.out.println("chats size before: " + chats.size());
-
-            for (int i = 0; i < myAccount.getChats().size(); i++) {
-                if ( users.get(holder.getAdapterPosition()).getIdUser() == myAccount.getChats().get(i).getReceiver() ) {
-                    chats.add(myAccount.getChats().get(i));
-                }
-            }
-            System.out.println("chats size after: " + chats.size());
-            for (int i = 0; i < chats.size(); i++) {
-                System.out.println(chats.get(i).getReceiver());
-            }
 
             Intent intent = new Intent(holder.itemView.getContext(), ChatActivity.class);
             intent.putExtra("username", username);

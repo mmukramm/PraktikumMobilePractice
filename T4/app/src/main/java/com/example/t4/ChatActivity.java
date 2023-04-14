@@ -39,7 +39,7 @@ public class ChatActivity extends AppCompatActivity {
         String profilePictureUrl = getIntent().getStringExtra("profilePictureUrl");
 
         chatHeader.setOnClickListener(v -> {
-            Intent i = new Intent(ChatActivity.this, ProfilePictureActivity.class);
+            Intent i = new Intent(ChatActivity.this, ProfileActivity.class);
             i.putExtra("username", username);
             i.putExtra("phoneNumber", phoneNumber);
             i.putExtra("status", status);

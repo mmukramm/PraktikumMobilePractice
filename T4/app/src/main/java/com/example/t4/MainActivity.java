@@ -19,14 +19,11 @@ public class MainActivity extends AppCompatActivity {
         homeChatRv.setHasFixedSize(true);
 
         userList.addAll(UserData.getUser());
+        UserModel myAccount = userList.get(0);
+        userList.remove(0);
 
-        homeChatRv.setLayoutManager(new LinearLayoutManager(this) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
-        UserHomeAdapter userHomeAdapter = new UserHomeAdapter(userList);
+        homeChatRv.setLayoutManager(new LinearLayoutManager(this));
+        UserHomeAdapter userHomeAdapter = new UserHomeAdapter(userList, myAccount);
         homeChatRv.setAdapter(userHomeAdapter);
     }
 }
