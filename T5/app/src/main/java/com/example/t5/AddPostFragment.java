@@ -3,6 +3,7 @@ package com.example.t5;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ import java.util.Objects;
 
 public class AddPostFragment extends Fragment {
     private static final String EXTRA_DESCRIPTION = "extra_description";
+    private static final Bitmap EXTRA_BITMAP = null;
     private ImageView addImagePostIv;
     private TextInputEditText addDescriptionEt;
     private Button postBtn;
@@ -60,9 +63,13 @@ public class AddPostFragment extends Fragment {
         });
 
         if (savedInstanceState != null) {
-            String descFromBundle = savedInstanceState.getString(EXTRA_DESCRIPTION);
-//            setDescription(descFromBundle);
+            String savedAddDescriptionEt = savedInstanceState.getString("extra_addDescriptionEt");
+            addDescriptionEt.setText(savedAddDescriptionEt);
+
+            Bitmap savedAddImagePostIv = savedInstanceState.getParcelable("extra_addImagePostIv");
+            addImagePostIv.setImageBitmap(savedAddImagePostIv);
         }
+
         postBtn.setOnClickListener(v -> {
             Log.d("postBtn Clicked", "Post Button Clicked");
             if (bitmap == null) {
@@ -78,8 +85,15 @@ public class AddPostFragment extends Fragment {
         });
     }
 
-    private void setDescription(String da) {
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
 
+        TextInputEditText addDescriptionEt = getView().findViewById(R.id.addDescriptionEt);
+        ImageView addImagePostIv = getView().findViewById(R.id.addImagePostIv);
+
+        outState.putString("extra_addDescriptionEt", addDescriptionEt.getText().toString());
+        outState.putParcelable("extra_addImagePostIv", ((BitmapDrawable) addImagePostIv.getDrawable()).getBitmap());
     }
 
     private void setView() {
@@ -88,7 +102,7 @@ public class AddPostFragment extends Fragment {
         menuTitleTv = getActivity().findViewById(R.id.menuTitleTv);
         postBtn = getView().findViewById(R.id.postBtn);
     }
-    ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(
+        ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
