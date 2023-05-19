@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class ProfileFragment extends Fragment {
-    private TextView menuTitleTv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,7 +22,5 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        menuTitleTv = getActivity().findViewById(R.id.menuTitleTv);
-        menuTitleTv.setText("Profile");
     }
 }
