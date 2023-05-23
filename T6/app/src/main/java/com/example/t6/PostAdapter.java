@@ -40,12 +40,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.contentDescTv.setText(post.getDescription());
         holder.usernameTv.setText(post.getUser().getUsername());
         holder.homeProfileIv.setImageDrawable(context.getDrawable(post.getUser().getProfileImage()));
-        holder.headerLl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), ProfileActivity.class);
-                v.getContext().startActivity(i);
-            }
+        holder.headerLl.setOnClickListener(v -> {
+            Intent i = new Intent(v.getContext(), ProfileActivity.class);
+            i.putExtra("User", post.getUser());
+            v.getContext().startActivity(i);
         });
     }
 

@@ -3,16 +3,8 @@ package com.example.t6;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +13,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.t6.DataSource.PostData;
 import com.example.t6.Models.PostModel;
 import com.example.t6.Models.UserModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AddPostFragment extends Fragment {
     private ImageView addImagePostIv;
@@ -34,6 +35,8 @@ public class AddPostFragment extends Fragment {
     private Button postBtn;
     private Bitmap bitmap;
     private ActivityResultLauncher<Intent> mGetContent;
+    private PostModel postModel;
+    private UserModel userModel = new UserModel("Alkavini De Bruynesse", "Kevin De Bruyne", R.drawable.mu);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,17 +77,21 @@ public class AddPostFragment extends Fragment {
                 return;
             }
 
-            UserModel userModel = new UserModel("Alkavini De Bruynesse", R.drawable.mu);
             String postDescription = addDescriptionEt.getText().toString();
 
-            PostModel postModel = new PostModel(userModel, bitmap, postDescription);
+            postModel = new PostModel(userModel, bitmap, postDescription);
 
             bitmap = null;
             addImagePostIv.setImageBitmap(null);
             addDescriptionEt.setText("");
 
-            PostData.setPost(postModel);
-            getParentFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("postModel", postModel);
+
+            HomeFragment homeFragment = new HomeFragment();
+            homeFragment.setArguments(bundle);
+            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentContainer, homeFragment, HomeFragment.class.getSimpleName()).commit();
             Toast.makeText(getContext(), "Post Success", Toast.LENGTH_SHORT).show();
         });
     }

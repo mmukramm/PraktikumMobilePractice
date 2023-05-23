@@ -1,17 +1,17 @@
 package com.example.t6;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.t6.DataSource.PostData;
 import com.example.t6.Models.PostModel;
@@ -33,25 +33,37 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         setView();
-        PostData postData = new PostData(requireContext());
-        posts = postData.getPosts();
-        homeContentRv.setVisibility(View.GONE);
-        if (posts.size() != 0){
-            noPostTv.setVisibility(View.GONE);
 
-            homeContentRv.setVisibility(View.VISIBLE);
-            homeContentRv.setHasFixedSize(true);
-            homeContentRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        PostData postData = new PostData(getContext());
+        boolean isRefresh = postData.getRefresh();
 
-            PostAdapter postAdapter = new PostAdapter(posts, getContext());
-            homeContentRv.setAdapter(postAdapter);
+        Bundle bundle = getArguments();
+
+        if (!isRefresh) {
+            Log.d("HomeFragment Bundle Status", "Tidak ada data dikirimkan");
+            posts = postData.getPosts();
+            postData.setRefresh(true);
+        } else {
+            Log.d("HomeFragment Bundle Status", "Ada data dikirimkan " + bundle);
+            if(bundle !=null) {
+                PostModel newData = bundle.getParcelable("postModel");
+                postData.setPost(newData);
+            }
+            posts = postData.getPosts();
         }
+
+        noPostTv.setVisibility(View.GONE);
+
+        homeContentRv.setHasFixedSize(true);
+        homeContentRv.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        PostAdapter postAdapter = new PostAdapter(posts, getContext());
+        homeContentRv.setAdapter(postAdapter);
 
     }
 
-    void setView(){
+    void setView() {
         homeContentRv = getView().findViewById(R.id.homeContentRv);
         noPostTv = getView().findViewById(R.id.noPostTv);
         posts = new ArrayList<>();
