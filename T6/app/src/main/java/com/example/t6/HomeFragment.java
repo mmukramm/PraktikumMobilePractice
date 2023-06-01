@@ -17,6 +17,7 @@ import com.example.t6.DataSource.PostData;
 import com.example.t6.Models.PostModel;
 
 import java.util.ArrayList;
+import java.util.Deque;
 
 public class HomeFragment extends Fragment {
     private RecyclerView homeContentRv;
@@ -35,23 +36,15 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setView();
 
-        PostData postData = new PostData(getContext());
-        boolean isRefresh = postData.getRefresh();
-
         Bundle bundle = getArguments();
 
-        if (!isRefresh) {
-            Log.d("HomeFragment Bundle Status", "Tidak ada data dikirimkan");
-            posts = postData.getPosts();
-            postData.setRefresh(true);
-        } else {
-            Log.d("HomeFragment Bundle Status", "Ada data dikirimkan " + bundle);
-            if(bundle !=null) {
-                PostModel newData = bundle.getParcelable("postModel");
-                postData.setPost(newData);
-            }
-            posts = postData.getPosts();
+        if (bundle!=null){
+            PostModel postModel = bundle.getParcelable("postModel");
+            PostData.postModels.push(postModel);
         }
+
+        Deque<PostModel> postData = PostData.postModels;
+        posts = new ArrayList<>(postData);
 
         noPostTv.setVisibility(View.GONE);
 

@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,22 +19,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.t6.DataSource.PostData;
+import com.example.t6.Models.PostModel;
 import com.example.t6.Models.UserModel;
-import com.google.android.material.internal.TextWatcherAdapter;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.Deque;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class SearchUserFragment extends Fragment {
     private ImageView clearIcon_iv;
     private TextInputEditText searchBar_et;
     private RecyclerView userContainer_rv;
     private ProgressBar progressBar_pb;
+    private ArrayList<UserModel> userModels;
     private ArrayList<UserModel> filteredUserModels;
 
     @Override
@@ -56,18 +54,10 @@ public class SearchUserFragment extends Fragment {
         clearIcon_iv.setVisibility(View.GONE);
         progressBar_pb.setVisibility(View.GONE);
 
-        PostData postData = new PostData(getContext());
-        ArrayList<UserModel> userModels = postData.getUserPosts();
-
-        Set<UserModel> set = new LinkedHashSet<>(userModels);
-        userModels.clear();
-        userModels.addAll(set);
-        for (UserModel item : userModels) {
-            Log.d("User", String.valueOf(item));
-        }
-
         userContainer_rv.setHasFixedSize(true);
         userContainer_rv.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        userModels = new ArrayList<>(setUserModels());
 
         searchBar_et.addTextChangedListener(new TextWatcher() {
             @Override
@@ -124,5 +114,14 @@ public class SearchUserFragment extends Fragment {
                 search_et.setText("");
             }
         });
+    }
+
+    private ArrayList<UserModel> setUserModels() {
+        Deque<PostModel> postData = PostData.postModels;
+        ArrayList<UserModel> userModelsDump = new ArrayList<>();
+        for (PostModel item : postData) {
+            if (!userModelsDump.contains(item.getUser())) userModelsDump.add(item.getUser());
+        }
+        return userModelsDump;
     }
 }

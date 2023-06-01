@@ -1,6 +1,7 @@
 package com.example.t6.Models;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,17 +9,17 @@ import androidx.annotation.NonNull;
 
 public class PostModel implements Parcelable {
     private UserModel user;
-    private Bitmap image;
+    private Uri image;
     private String description;
 
-    public PostModel(UserModel user, Bitmap image, String description) {
+    public PostModel(UserModel user, Uri image, String description) {
         this.user = user;
         this.image = image;
         this.description = description;
     }
 
     protected PostModel(Parcel in) {
-        image = in.readParcelable(Bitmap.class.getClassLoader());
+        image = in.readParcelable(Uri.class.getClassLoader());
         description = in.readString();
     }
 
@@ -34,11 +35,11 @@ public class PostModel implements Parcelable {
         }
     };
 
-    public Bitmap getImage() {
+    public Uri getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(Uri image) {
         this.image = image;
     }
 

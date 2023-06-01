@@ -33,7 +33,7 @@ public class AddPostFragment extends Fragment {
     private ImageView addImagePostIv;
     private TextInputEditText addDescriptionEt;
     private Button postBtn;
-    private Bitmap bitmap;
+    private Uri uriImage;
     private ActivityResultLauncher<Intent> mGetContent;
     private PostModel postModel;
     private UserModel userModel = new UserModel("Alkavini De Bruynesse", "Kevin De Bruyne", R.drawable.mu);
@@ -48,12 +48,8 @@ public class AddPostFragment extends Fragment {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
                         Uri postImage = data.getData();
-                        try {
-                            bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), postImage);
-                            addImagePostIv.setImageBitmap(bitmap);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        uriImage = postImage;
+                        addImagePostIv.setImageURI(uriImage);
                     }
                 }
         );
@@ -72,16 +68,16 @@ public class AddPostFragment extends Fragment {
         });
 
         postBtn.setOnClickListener(v -> {
-            if (bitmap == null) {
+            if (uriImage == null) {
                 Toast.makeText(getContext(), "Select an Image", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             String postDescription = addDescriptionEt.getText().toString();
 
-            postModel = new PostModel(userModel, bitmap, postDescription);
+            postModel = new PostModel(userModel, uriImage, postDescription);
 
-            bitmap = null;
+            uriImage = null;
             addImagePostIv.setImageBitmap(null);
             addDescriptionEt.setText("");
 

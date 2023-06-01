@@ -1,5 +1,6 @@
 package com.example.t6;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,16 +9,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.t6.DataSource.PostData;
+import com.example.t6.Models.PostModel;
+import com.example.t6.Models.UserModel;
+
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
     private ImageView homeIcon, addIcon, personIcon, searchIcon;
     private FragmentManager fm = getSupportFragmentManager();
     private TextView menuTitleTv;
+    private final Deque<PostModel> postModels = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setView();
+        setData();
+        PostData.postModels = postModels;
 
         HomeFragment homeFragment = new HomeFragment();
         SearchUserFragment searchUserFragment = new SearchUserFragment();
@@ -51,5 +63,27 @@ public class MainActivity extends AppCompatActivity {
         personIcon = findViewById(R.id.personIcon);
         searchIcon = findViewById(R.id.searchIcon);
         menuTitleTv = findViewById(R.id.menuTitleTv);
+    }
+
+    private void setData() {
+        UserModel user1 = new UserModel("Haaland", "Erling Haaland", R.drawable.haaland);
+        Uri uri1 = Uri.parse("android.resource://com.example.t6/drawable/haaland");
+        postModels.add(new PostModel(user1, uri1, "Kembali bertapa setelah 4-0"));
+
+        UserModel user2 = new UserModel("De Bruyne", "Kevin De Bruyne", R.drawable.debruyne);
+        Uri uri2 = Uri.parse("android.resource://com.example.t6/drawable/debruyne");
+        postModels.add(new PostModel(user2, uri2, "4? Wah.... 4"));
+
+        UserModel user3 = new UserModel("Mbappe", "Kylian Mbappeh", R.drawable.mbappe);
+        Uri uri3 = Uri.parse("android.resource://com.example.t6/drawable/mbappe");
+        postModels.add(new PostModel(user3, uri3, "Aaaah, ketekku basaah"));
+
+        UserModel user4 = new UserModel("Ronaldo", "Cristiano Ronaldo", R.drawable.ronaldo);
+        Uri uri4 = Uri.parse("android.resource://com.example.t6/drawable/ronaldo");
+        postModels.add(new PostModel(user4, uri4, "Satuu, duaa, tigaa, SUIUIIUIIUUUUUIIII"));
+
+        UserModel user5 = new UserModel("Messi", "Lionel Messi", R.drawable.messi);
+        Uri uri5 = Uri.parse("android.resource://com.example.t6/drawable/messi");
+        postModels.add(new PostModel(user5, uri5, "Kabooor, mamaah aku takuuut"));
     }
 }
