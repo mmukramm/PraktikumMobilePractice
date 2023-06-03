@@ -48,7 +48,7 @@
                 android:id="@+id/timeDate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:text="HH:mm:SS"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
@@ -62,8 +62,8 @@
             android:layout_marginTop="15dp"
             android:text="Item Description"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="17sp"
+            />
 
     </RelativeLayout>
 

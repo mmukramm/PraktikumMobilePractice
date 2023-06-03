@@ -10,6 +10,7 @@
         android:id="@+id/searchBarContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:layout_marginHorizontal="10dp">
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/searchBarSection"
@@ -17,10 +18,10 @@
             android:layout_height="wrap_content"
             app:startIconDrawable="@drawable/search_icon">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/searchBar_sv"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:hint="@string/search" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -33,6 +34,7 @@
             android:layout_alignBottom="@id/searchBarSection"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
+            android:visibility="gone"
             android:src="@drawable/clear_icon" />
     </RelativeLayout>
 
@@ -46,12 +48,13 @@
         android:layout_marginHorizontal="10dp" />
 
     <TextView
+        android:id="@+id/noItem_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/no_item"
         android:textSize="24sp"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:textStyle="bold" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
