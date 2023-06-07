@@ -88,9 +88,8 @@ public class DataDetailActivity extends AppCompatActivity {
 
         Intent intent = new Intent();
 
-        Log.d("DataDetailActivity", "addUpdate: " + created_date + " " + created_time);
-
         if (isEdit) {
+            contentValues.put(DatabaseContract.ItemColumns.IS_EDIT, true);
             long result = itemHelper.updateData(String.valueOf(item.getId()), contentValues);
             if (result > 0) {
                 item.setId((int) result);
@@ -100,6 +99,7 @@ public class DataDetailActivity extends AppCompatActivity {
                 Toast.makeText(this, "Failed to update data", Toast.LENGTH_SHORT).show();
             }
         } else {
+            contentValues.put(DatabaseContract.ItemColumns.IS_EDIT, false);
             long result = itemHelper.insertData(contentValues);
             if (result > 0) {
                 item.setId((int) result);

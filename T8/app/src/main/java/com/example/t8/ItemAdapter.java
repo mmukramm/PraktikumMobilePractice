@@ -39,6 +39,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         holder.createdDate_tv.setText(itemModel.getCreatedDate());
         holder.timeDate_tv.setText(itemModel.getCreatedTime());
         holder.description_tv.setText(itemModel.getDescription());
+        if (itemModel.isEdit()) holder.created_at_tv.setText("Updated at ");
         holder.item_cv.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), DataDetailActivity.class);
             intent.putExtra(DataDetailActivity.EXTRA_ITEM, itemModel);
@@ -52,7 +53,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView itemTitle_tv, createdDate_tv, timeDate_tv, description_tv;
+        TextView itemTitle_tv, createdDate_tv, timeDate_tv, description_tv, created_at_tv;
         CardView item_cv;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +62,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
             timeDate_tv = itemView.findViewById(R.id.timeDate_tv);
             description_tv = itemView.findViewById(R.id.itemDescription_tv);
             item_cv = itemView.findViewById(R.id.item_cv);
+            created_at_tv =itemView.findViewById(R.id.created_at_tv);
         }
     }
 }

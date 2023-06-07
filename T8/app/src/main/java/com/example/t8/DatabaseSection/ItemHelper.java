@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ItemHelper {
     private static final String DATABASE_TABLE = DatabaseContract.TABLE_NAME;
-    private DatabaseHelper databaseHelper;
+    private final DatabaseHelper databaseHelper;
     private static SQLiteDatabase database;
     private static volatile ItemHelper INSTANCE;
 
@@ -48,19 +48,6 @@ public class ItemHelper {
                 null,
                 null,
                 DatabaseContract.ItemColumns._ID + " ASC"
-        );
-    }
-
-    public Cursor queryShowById(String id) {
-        return database.query(
-                DATABASE_TABLE,
-                null,
-                DatabaseContract.ItemColumns._ID + " = ?",
-                new String[]{id},
-                null,
-                null,
-                null,
-                null
         );
     }
 

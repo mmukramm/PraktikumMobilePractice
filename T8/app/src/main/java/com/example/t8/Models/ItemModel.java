@@ -11,16 +11,18 @@ public class ItemModel implements Parcelable {
     private String description;
     private String createdDate;
     private String createdTime;
+    private boolean isEdit;
 
     public ItemModel() {
     }
 
-    public ItemModel(int id, String name, String description, String createdDate, String createdTime) {
+    public ItemModel(int id, String name, String description, String createdDate, String createdTime, boolean isEdit) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.createdDate = createdDate;
         this.createdTime = createdTime;
+        this.isEdit = isEdit;
     }
 
     protected ItemModel(Parcel in) {
@@ -29,6 +31,7 @@ public class ItemModel implements Parcelable {
         description = in.readString();
         createdDate = in.readString();
         createdTime = in.readString();
+        isEdit = in.readByte() != 0;
     }
 
     public static final Creator<ItemModel> CREATOR = new Creator<ItemModel>() {
@@ -83,6 +86,14 @@ public class ItemModel implements Parcelable {
         this.createdTime = createdTime;
     }
 
+    public boolean isEdit() {
+        return isEdit;
+    }
+
+    public void setEdit(boolean edit) {
+        isEdit = edit;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -95,5 +106,6 @@ public class ItemModel implements Parcelable {
         dest.writeString(description);
         dest.writeString(createdDate);
         dest.writeString(createdTime);
+        dest.writeByte((byte) (isEdit ? 1 : 0));
     }
 }

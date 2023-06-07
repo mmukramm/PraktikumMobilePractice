@@ -15,7 +15,8 @@ public class MappingItemHelper {
             String description = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.ItemColumns.DESCRIPTION));
             String created_date = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.ItemColumns.CREATED_DATE));
             String created_time = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.ItemColumns.CREATED_TIME));
-            itemModels.add(new ItemModel(id, name, description, created_date, created_time));
+            boolean is_edit = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.ItemColumns.IS_EDIT)) > 0;
+            itemModels.add(new ItemModel(id, name, description, created_date, created_time, is_edit));
         }
         return itemModels;
     }

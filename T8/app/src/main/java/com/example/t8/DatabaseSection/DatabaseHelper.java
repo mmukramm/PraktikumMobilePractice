@@ -16,13 +16,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                             + " %s TEXT NOT NULL,"
                             + " %s TEXT NOT NULL,"
                             + " %s TEXT NOT NULL,"
+                            + " %s TEXT NOT NULL,"
                             + " %s TEXT NOT NULL)",
                     DatabaseContract.TABLE_NAME,
                     DatabaseContract.ItemColumns._ID,
                     DatabaseContract.ItemColumns.NAME,
                     DatabaseContract.ItemColumns.DESCRIPTION,
                     DatabaseContract.ItemColumns.CREATED_DATE,
-                    DatabaseContract.ItemColumns.CREATED_TIME
+                    DatabaseContract.ItemColumns.CREATED_TIME,
+                    DatabaseContract.ItemColumns.IS_EDIT
             );
 
     public DatabaseHelper(Context context) {

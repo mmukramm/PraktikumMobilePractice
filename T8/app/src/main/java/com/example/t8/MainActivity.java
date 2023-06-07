@@ -109,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
                 items = itemsDump;
                 searchBarContainer.setVisibility(RelativeLayout.VISIBLE);
                 noItem_tv.setVisibility(TextView.GONE);
+                for (int i = 0; i < itemsDump.size(); i++) {
+                    System.out.println(itemsDump.get(i).isEdit());
+                }
             }else {
                 items = new ArrayList<>();
                 searchBarContainer.setVisibility(RelativeLayout.GONE);

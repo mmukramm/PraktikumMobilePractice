@@ -12,5 +12,7 @@ public class DatabaseContract {
         public static final String DESCRIPTION = "description";
         public static final String CREATED_DATE = "created_date";
         public static final String CREATED_TIME = "created_time";
+        public static final String IS_EDIT = "is_edit";
+
     }
 }
