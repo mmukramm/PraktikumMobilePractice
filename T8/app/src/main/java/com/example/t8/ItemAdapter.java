@@ -16,8 +16,8 @@ import com.example.t8.Models.ItemModel;
 import java.util.ArrayList;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
-    private ArrayList<ItemModel> itemModels;
-    private ActivityResultLauncher<Intent> resultLauncher;
+    private final ArrayList<ItemModel> itemModels;
+    private final ActivityResultLauncher<Intent> resultLauncher;
 
     public ItemAdapter(ArrayList<ItemModel> itemModels, ActivityResultLauncher<Intent> resultLauncher) {
         this.itemModels = itemModels;
